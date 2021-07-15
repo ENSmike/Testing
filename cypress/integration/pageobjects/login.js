@@ -4,13 +4,13 @@ class LoginPage {
     }
 
     fillUsername(value){
-        const field = cy.get(':nth-child(1) > .form-control');
+        const field = cy.get('[name="username"]')
         field.clear();
         field.type(value);
         return this
     }
     fillPassword(value){
-        const field = cy.get(':nth-child(2) > .form-control')
+        const field = cy.get('[name="password"]')
         field.clear();
         field.type(value);
         return this
@@ -18,6 +18,13 @@ class LoginPage {
     submit(){
         const button = cy.get('.btn')
         button.click();
+    }
+
+    userF(){
+        cy.get('span.help-block').should('include.text', 'Please enter your password')
+    }
+    passwordF(){
+        cy.get('span.help-block').should('include.text', 'Please enter username.')
     }
 }      
 
