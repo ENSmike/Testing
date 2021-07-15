@@ -26,6 +26,9 @@ class LoginPage {
     passwordF(){
         cy.get('span.help-block').should('include.text', 'Please enter username.')
     }
+    successful(){
+        cy.get('span.help-block').should('not.include.text', '')
+    }
 }      
 
 

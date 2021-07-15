@@ -33,13 +33,13 @@ const loginPage = new LoginPage();
  
 
 
-describe('Fail because of unsuccessful login', ()=>{
+describe('Failed because of unsuccessful login', ()=>{
     it ('Invalid data login assert', () => {
-  lp.visit()
-  lp.fillUsername('123user')
-  lp.fillPassword('user123')
-  lp.submit()
-  cy.get('span.help-block').should('not.include.text', '')
-  });
+  loginPage.visit()
+  loginPage.fillUsername('123user')
+  loginPage.fillPassword('user123')
+  loginPage.submit()
+  loginPage.successful()
+  }); 
 });
  
